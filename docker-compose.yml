@@ -1,0 +1,13 @@
+version: '2'
+services:
+  vault:
+    image: vault:0.6.2
+    ports:
+      - 8200:8200
+    depends_on:
+      - postgres
+    environment:
+      # Hard coded so that it's the same every run
+      VAULT_DEV_ROOT_TOKEN_ID: 06f6e86b-0440-748f-3007-863c5702de32
+  postgres:
+    image: postgres:9.5
